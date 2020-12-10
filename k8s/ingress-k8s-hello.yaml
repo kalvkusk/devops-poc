@@ -1,0 +1,27 @@
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: ingress
+  annotations:
+    networking.gke.io/managed-certificates: apollo-io-poc
+    kubernetes.io/ingress.allow-http: "true"
+    kubernetes.io/ingress.global-static-ip-name: apollo-ingress-static
+  namespace: default
+spec:
+  rules:
+  - host: apollo.techstrive.io
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: k8s-hello-app
+          servicePort: 80
+---
+apiVersion: networking.gke.io/v1beta2
+kind: ManagedCertificate
+metadata:
+  name: apollo-io-poc
+spec:
+  domains:
+    - apollo.techstrive.io

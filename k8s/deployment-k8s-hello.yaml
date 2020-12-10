@@ -1,0 +1,28 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: k8s-hello-app
+  labels:
+    k8s-app: k8s-hello-app
+  namespace: default
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      k8s-app: k8s-hello-app
+  template:
+    metadata:
+      labels:
+        k8s-app: k8s-hello-app
+    spec:
+      terminationGracePeriodSeconds: 60
+      containers:
+      - name: k8s-hello-app
+        image: kalvkusk/k8s-hello-app:0.0.2
+        ports:
+        - containerPort: 80
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 80
