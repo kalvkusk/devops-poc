@@ -1,38 +1,31 @@
-## Devops POC task: 
+# Devops POC task: 
 
-Preparation 
-	Goal
-	Setup the challenge environment.
+## Preparation 
+Goal
+Setup the challenge environment.
 
-	Steps
+## Steps
 Register for a free Google Cloud account here.
 Google Cloud provides generous free tiers for all its services so your interview questions below can all be answered with a free tier. Be sure to check what is free on Google Cloud before you start the exercises.
 Make sure Terraform, gcloud and kubectl are installed on your laptop and work with GCP.
 Create a new GCP project for the challenge 
 
-Requirements
-Give the Project Viewer access to ray@apollo.io, david@apollo.io, and jonathan.pigree@apollo.io to your Google Cloud account so that we can inspect your infrastructure.
-
-Docker 
+## Docker 
 Goal
-	Containerize the hello-world Python app.
+Containerize the hello-world Python app.
 	
 Steps
 Create a Dockerfile to generate the Docker image
 Build and push the Docker image into your GCP project’s registry.
 
-Requirements
+## Requirements
 The Docker image should be runnable anywhere by default
 The webapp should be served by passenger + nginx
 Nginx access logs should be redirected to stdout
 Nginx error logs should be redirected to stderr
 
-	Files to submit
-The Dockerfile and its attached files
 
-
-
-Terraform 
+## Terraform 
 Goal
 Create a small GKE cluster with Terraform.
 
@@ -51,17 +44,16 @@ Autoscaling enabled from 1 to 3 instances
 Node type is preemptible (cheap instances) “n1-standard-1” 
 Nodes auto-repair and auto-upgrade options on
 
-Files to submit
-The Terraform module
 
-Kubernetes
+## Kubernetes
 Goal
-	Deploy the hello-world app into the GKE cluster created.
+
+Deploy the hello-world app into the GKE cluster created.
 
 Steps
 Write Kubernetes manifests/templates/code
 Apply them to your cluster
-Document your solution (architecture, deployment) as if you are explaining it to a new engineer with no background in Kubernetes (this is a test of your communication skills)
+Document your solution (architecture, deployment)
 
 Requirements
 The app must be accessible from a domain name (use <your project name>.<ip>.xip.io or a personal domain)
@@ -70,17 +62,6 @@ The app must be able to autoscale depending on CPU usage from 2 to 4 instances
 The app should have an healthcheck setup with appropriate parameters
 The app must be protected from full eviction (all instances removed at the same time)
 Updating the app must not have downtime.
-
-Files to submit
-The Kubernetes manifests, templates, scripts wrote to deploy the app
-The website domain name
-Your solution’s documentation
-
-
-
-
-
-
 
 
 
